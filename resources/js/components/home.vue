@@ -1,29 +1,12 @@
+<style> body {     background-color:cyan ; } </style>
 <template>
 <v-app>
      <v-row
-    align="center"
+    align="top"
     justify="space-around"
   >
     <v-btn @click="redirect('product')">
-      เพิ่มข้อมูล
-    </v-btn>
-    <v-btn
-      depressed
-      color="primary"
-    >
-      
-    </v-btn>
-    <v-btn
-      depressed
-      color="error"
-    >
-      Error
-    </v-btn>
-    <v-btn
-      depressed
-      disabled
-    >
-      Disabled
+      จัดการดอกไม้
     </v-btn>
   </v-row>
 </v-app>

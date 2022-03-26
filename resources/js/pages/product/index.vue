@@ -23,13 +23,13 @@
         >
           <template v-slot:activator="{ on, attrs }">
             <v-btn
-              color="primary"
+              color="green"
               dark
               class="mb-2"
               v-bind="attrs"
               v-on="on"
             >
-              New Item
+              เพิ่มดอกไม้
             </v-btn>
           </template>
           <v-card>
@@ -93,7 +93,7 @@
         </v-dialog>
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+            <v-card-title class="text-h5">ต้องการที่จะลบข้อมูล จริง หรือ ไม่?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -138,11 +138,6 @@
       dialog: false,
       dialogDelete: false,
       headers: [
-{
-  text: 'ID',
-  value:'id',
-},
-
         {
           text: 'ชื่อดอกไม้',
           align: 'start',
@@ -150,6 +145,7 @@
           value: 'name',
         },
         { text: 'ราคา', value: 'price' },
+        { text: 'รายละเอียด', value: 'description' },
         { text: 'จัดการ', value: 'actions',sortable: false },
       ],
       products: [],
@@ -173,7 +169,7 @@
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? 'New Flower' : 'Edit Flower'
       },
     },
 

@@ -1,5 +1,5 @@
 <template>
-<v-app>
+<v-app style="background-color:cyan">
      <v-container fluid>
       <v-row dense>
         <v-col
@@ -9,28 +9,13 @@
         >
           <v-card>
             <v-img
+            :src="product.image"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
             >
               <v-card-title v-text="product.name"></v-card-title>
             </v-img>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-
-              <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
-              </v-btn>
-
-              <v-btn icon>
-                <v-icon>mdi-bookmark</v-icon>
-              </v-btn>
-
-              <v-btn icon>
-                <v-icon>mdi-share-variant</v-icon>
-              </v-btn>
-            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -39,12 +24,15 @@
 </template>
 
 <script>
+
     export default {
         data(){
             return {
                 products:[],
                 product: null,
+                reveal: false,
             }
+            
         },
         mounted() {
             this.initialize()
@@ -65,3 +53,11 @@
         }
     }
 </script>
+<style>
+.v-card--reveal {
+  bottom: 0;
+  opacity: 1 !important;
+  position: absolute;
+  width: 100%;
+}
+</style>
