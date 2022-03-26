@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -14,7 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        $product = Product::all();
+        return response()->json([
+            'success'=>true,
+            'products'=> $product
+    ]);
     }
 
     /**
@@ -71,6 +76,10 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+        $product = Product::find($id);
+
+        $product->delete();
+        return response()->json(['success'=>true,'message'=>'deleted']);
     }
 
     public function search($name){

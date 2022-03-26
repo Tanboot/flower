@@ -49,7 +49,7 @@ class AuthController extends Controller
 
         $token = $user->createToken('myseed')->plainTextToken;
 
-        Auth::login($user);
+        //Auth::login($user);
 
         $response = [
             'user' => $user,
@@ -61,9 +61,11 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
-        return auth()->user();
         auth()->user()->tokens()->delete();
-        return true;
+        return response([
+            'success' => true,
+            'message' => 'log out successful'
+        ]);
     }
 
 
